@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 12:41:00 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/08/05 13:23:53 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/08/05 13:44:08 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/08/05 13:44:39 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <unistd.h>
-# include <limits.h>
-
-typedef struct s_stack
+void	ft_error(void)
 {
-	int				number;
-	int				position;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
-
-#endif
+	write (2, "Error\n", 6);
+	exit(1);
+}

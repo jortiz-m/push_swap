@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_freestr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 12:41:00 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/08/05 13:23:53 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/08/05 13:45:54 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/08/05 13:48:11 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <unistd.h>
-# include <limits.h>
-
-typedef struct s_stack
+void	ft_freestr(char **str)
 {
-	int				number;
-	int				position;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	char	*lst;
 
-#endif
+	if (!str)
+		return ;
+	while (*str)
+	{
+		lst = *str;
+		str++;
+		free(lst);
+	}
+	*str = NULL;
+}
