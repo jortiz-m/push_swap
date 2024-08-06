@@ -6,7 +6,7 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:26:42 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/08/05 13:44:51 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:43:09 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_stack	*ft_oneargument(char **argv)
 	while (tmp[i])
 	{
 		j = ft_myatoi(tmp[i]);
-		ft_add_back(&a, ft_stack_new(j)); //funciones sin hacer
+		ft_lstadd_back(&a, ft_lstnew(j));
 		i++;
 	}
 	ft_freestr(tmp);
@@ -78,10 +78,13 @@ t_stack	*ft_arguments(int argc, char **argv)
 	{
 		while (i < argc)
 		{
+			//if (ft_check_atoi(argv[i]) == false so ft_error; //por zi acazo
 			j = ft_myatoi(argv[i]);
-			ft_add_back(&a, ft_stack_new(j)); //funciones sin hacer
+			ft_lstadd_back(&a, ft_lstnew(j));
 			i++;
 		}
 	}
 	return (a);
 }
+//bool	ft_checht_atoi()
+signo si es correcto

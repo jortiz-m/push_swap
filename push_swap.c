@@ -6,7 +6,7 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:24:59 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/08/05 13:43:41 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:20:53 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*start;
+	t_stack	*a;
 
-	start = ft_arguments(argc, argv);
-	if (!start || ft_oneargument(start))
+	a = ft_arguments(argc, argv);
+	if (!a || ft_repeat(a))
 	{
-		ft_free(&start);
+		ft_free(&a);
 		ft_error();
 	}
-	if (!ft_isorder(start))
-		ft_sort(&start);
-	ft_free(&start);
+	if (!ft_isorder(a))
+		ft_sort(&a);
+	ft_free(&a);
 	return (0);
 }
