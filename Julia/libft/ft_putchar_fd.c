@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 12:01:36 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/04/18 12:51:09 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/04/18 13:03:54 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_stack	stacks;
-
-	init_stacks(&stacks, ac, av, true);
-	sort(&stacks);
+	write (fd, &c, 1);
 }

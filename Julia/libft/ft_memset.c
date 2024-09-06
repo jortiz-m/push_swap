@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 12:01:36 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/04/09 13:51:28 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/04/12 11:56:26 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memset(void *str, int c, size_t len)
 {
-	t_stack	stacks;
+	size_t	i;
 
-	init_stacks(&stacks, ac, av, true);
-	sort(&stacks);
+	i = 0;
+	while (i < len)
+	{
+		((unsigned char *)str)[i] = (unsigned char)c;
+		i++;
+	}
+	return (str);
 }

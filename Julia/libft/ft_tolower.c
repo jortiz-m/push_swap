@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 12:01:36 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/04/11 11:59:06 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/04/11 12:00:22 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_tolower(int c)
 {
-	t_stack	stacks;
-
-	init_stacks(&stacks, ac, av, true);
-	sort(&stacks);
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	return (c);
 }

@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 10:31:33 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/04 10:20:34 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/04/11 12:10:13 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/04/23 11:35:49 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strrchr(const char *str, int chr)
 {
-	t_stack	stack;
+	int	strlenght;
 
-	start_data(&stack, argc, argv, true);
-	sort(&stack);
+	strlenght = ft_strlen(str);
+	while (strlenght >= 0)
+	{
+		if (str[strlenght] == (char)chr)
+			return ((char *)(str + strlenght));
+		strlenght --;
+	}
+	return (NULL);
 }

@@ -6,10 +6,10 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 10:50:59 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/08/28 10:52:16 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:52:59 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	start_data()

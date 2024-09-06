@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 12:01:36 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/04/15 13:38:56 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/04/24 12:14:49 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_stack	stacks;
+	char	*str;
+	size_t	i;
 
-	init_stacks(&stacks, ac, av, true);
-	sort(&stacks);
+	str = (malloc(count * size));
+	i = 0;
+	if (str == NULL)
+		return (NULL);
+	while (i < (count * size))
+	{
+		str[i] = 0;
+		i++;
+	}
+	return (str);
 }

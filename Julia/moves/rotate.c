@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_reverse_rotate.c                                :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 10:57:50 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 11:49:35 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/09/06 11:46:18 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/06 12:53:07 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/push_swap.h"
 
 void	r_rotate(t_pile *pile)
 {
@@ -31,20 +31,15 @@ void	r_rotate(t_pile *pile)
 void	r_rotate_a(t_stack *stack)
 {
 	r_rotate(&stack->a);
-	if (stack->writing_mode)
 }
 
 void	r_rotate_b(t_stack *stack)
 {
 	r_rotate(&stack->b);
-	if (stack->writing_mode)
-		/*save_op*/
 }
 
 void	r_rotate_ab(t_stack *stack)
 {
 	r_rotate(&stack->a);
 	r_rotate(&stack->b);
-	if (stack->writing_mode)
-		/*save_op*/
 }

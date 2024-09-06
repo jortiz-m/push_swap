@@ -5,17 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 12:01:36 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/08/28 10:31:33 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/06 12:52:15 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/push_swap.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	t_stack	stacks;
+	t_stack	stack;
 
-	init_stacks(&stacks, ac, av, true);
-	sort(&stacks);
+	start_data(&stack, argc, argv, true);
+	sort(&stack);
+	show_moves()
 }
