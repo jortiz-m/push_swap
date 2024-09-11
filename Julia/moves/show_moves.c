@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_utils.c                                         :+:      :+:    :+:   */
+/*   show_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 21:09:02 by ugerkens          #+#    #+#             */
-/*   Updated: 2024/09/04 13:29:16 by antonimo         ###   ########.fr       */
+/*   Created: 2024/09/11 10:20:51 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/11 10:25:19 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/push_swap.h"
 
-void	save_op(t_ps *data, enum e_op op)
+void	save_op(t_stack *stack, enum e_op op)
 {
 	t_list	*new;
 
 	new = ft_lstnew((void *)(uintptr_t)op);
 	if (!new)
-		error(data);
-	ft_lstadd_back(&data->op_list, new);
+		error(stack);
+	ft_lstadd_back(&stack->op_list, new);
 }
 
-void	print_operations(t_list *head)
+void	show_moves(t_list *head)
 {
 	t_list	*reader;
 

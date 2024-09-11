@@ -3,68 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 20:58:02 by ugerkens          #+#    #+#             */
-/*   Updated: 2024/09/02 12:18:45 by antonimo         ###   ########.fr       */
+/*   Created: 2024/09/11 10:18:28 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/11 10:25:00 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-int	chunk_value(t_ps *data, t_chunk *chunk, int n)
+int	chunk_value(t_stack *stack, t_chunk *chunk, int n)
 {
 	enum e_loc	loc;
-	t_stack		*stk;
+	t_pile		*pile;
 	int			i;
 
 	i = 0;
 	loc = chunk->loc;
-	stk = loc_to_stack(data, loc);
+	pile = loc_to_stack(stack, loc);
 	if (loc == TOP_A || loc == TOP_B)
-		i = stk->top;
+		i = pile->top;
 	else if (loc == BOTTOM_A || loc == BOTTOM_B)
-		i = stk->bottom;
+		i = pile->bottom;
 	if (loc == TOP_A || loc == TOP_B)
 		while (--n > 0)
-			i = next_down(stk, i);
+			i = next_down(pile, i);
 	else if (loc == BOTTOM_A || loc == BOTTOM_B)
 		while (--n > 0)
-			i = next_up(stk, i);
-	return (stk->stack[i]);
+			i = next_up(pile, i);
+	return (pile->array[i]);
 }
 
-int	chunk_max_value(t_ps *data, t_chunk *chunk)
+int	chunk_max_value(t_stack *stack, t_chunk *chunk)
 {
-	t_stack	*stk;
+	t_pile	*pile;
 	int		size;
 	int		max_value;
 	int		i;
 
 	i = 0;
-	stk = loc_to_stack(data, chunk->loc);
+	pile = loc_to_stack(stack, chunk->loc);
 	size = chunk->size;
 	max_value = 0;
 	if (chunk->loc == TOP_A || chunk->loc == TOP_B)
-		i = stk->top;
+		i = pile->top;
 	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
-		i = stk->bottom;
+		i = pile->bottom;
 	while (size--)
 	{
-		if (stk->stack[i] > max_value)
-			max_value = stk->stack[i];
+		if (pile->array[i] > max_value)
+			max_value = pile->array[i];
 		if (chunk->loc == TOP_A || chunk->loc == TOP_B)
-			i = next_down(stk, i);
+			i = next_down(pile, i);
 		else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
-			i = next_up(stk, i);
+			i = next_up(pile, i);
 	}
 	return (max_value);
-}
-
-t_stack	*loc_to_stack(t_ps *data, enum e_loc loc)
-{
-	if (loc == TOP_A || loc == BOTTOM_A)
-		return (&data->a);
-	else
-		return (&data->b);
 }

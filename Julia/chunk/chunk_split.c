@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 20:57:19 by ugerkens          #+#    #+#             */
-/*   Updated: 2024/09/04 13:19:30 by antonimo         ###   ########.fr       */
+/*   Created: 2024/09/11 10:18:01 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/11 10:24:53 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
+void	chunk_split(t_ps *stack, t_chunk *to_split, t_split_dest *dest)
 {
 	int	pivot_1;
 	int	pivot_2;
@@ -24,8 +24,8 @@ void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
 	dest->min.size = 0;
 	dest->mid.size = 0;
 	dest->max.size = 0;
-	set_split_loc(to_split->loc, &dest->min, &dest->mid, &dest->max);
-	set_third_pivots(to_split->loc, to_split->size, &pivot_1, &pivot_2);
+	split_loc(to_split->loc, &dest->min, &dest->mid, &dest->max);
+	set_pivots(to_split->loc, to_split->size, &pivot_1, &pivot_2);
 	max_value = chunk_max_value(data, to_split);
 	while (to_split->size--)
 	{
@@ -39,35 +39,35 @@ void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
 	}
 }
 
-void	set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
+void	split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
 {
 	if (loc == TOP_A)
 	{
-		min->loc = BOTTOM_B;
-		mid->loc = TOP_B;
-		max->loc = BOTTOM_A;
-	}
-	else if (loc == BOTTOM_A)
-	{
-		min->loc = BOTTOM_B;
-		mid->loc = TOP_B;
-		max->loc = TOP_A;
+		min = BOTTOM_B;
+		mid = TOP_B;
+		max = BOTTOM_A;
 	}
 	else if (loc == TOP_B)
 	{
-		min->loc = BOTTOM_B;
-		mid->loc = BOTTOM_A;
-		max->loc = TOP_A;
+		min = BOTTOM_B;
+		mid = BOTTOM_A;
+		max = TOP_A;
+	}
+	else if (loc == BOTTOM_A)
+	{
+		min = BOTTOM_B;
+		mid = TOP_B;
+		max = TOP_A;
 	}
 	else if (loc == BOTTOM_B)
 	{
-		min->loc = TOP_B;
-		mid->loc = BOTTOM_A;
-		max->loc = TOP_A;
+		min = TOP_B;
+		mid = BOTTOM_A;
+		max = TOP_A;
 	}
 }
 
-void	set_third_pivots(enum e_loc loc, int crt_size, int *pivot_1, int *pivot_2)
+void	set_pivots(enum e_loc loc, int crt_size, int *pivot_1, int *pivot_2)
 {
 	*pivot_2 = crt_size / 3;
 	if (loc == TOP_A || loc == BOTTOM_A)

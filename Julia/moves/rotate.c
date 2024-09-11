@@ -12,34 +12,37 @@
 
 #include "../include/push_swap.h"
 
-void	r_rotate(t_pile *pile)
+void	rotate(t_pile *pile)
 {
 	if (is_full(pile))
 	{
-		pile->top = pile->bottom;
-		pile->bottom = next_up(pile, pile->bottom);
+		pile->bottom = pile->top;
+		pile->top = next_down(pile, pile->top);
 	}
 	else
 	{
-		pile->top = next_up(pile, pile->top);
-		pile->array[pile->top] = pile->array[pile->bottom];
-		pile->array[pile->bottom] = 0;
-		pile->bottom = next_up(pile, pile->bottom);
+		pile->bottom = next_down(pile, pile->bottom);
+		pile->array[pile->bottom] = pile->array[pile->top];
+		pile->array[pile->top] = 0;
+		pile->top = next_down(pile, pile->top);
 	}
 }
 
-void	r_rotate_a(t_stack *stack)
+void	rotate_a(t_stack *stack)
 {
-	r_rotate(&stack->a);
+	rotate(&stack->a);
+	save_op(stack, ra);
 }
 
-void	r_rotate_b(t_stack *stack)
+void	rotate_b(t_stack *stack)
 {
-	r_rotate(&stack->b);
+	rotate(&stack->b);
+	save_op(stack, rb);
 }
 
-void	r_rotate_ab(t_stack *stack)
+void	rotate_ab(t_stack *stack)
 {
-	r_rotate(&stack->a);
-	r_rotate(&stack->b);
+	rotate(&stack->a);
+	rotate(&stack->b);
+	save_op(stack, rr);
 }

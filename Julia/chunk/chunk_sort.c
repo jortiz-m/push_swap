@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 10:23:37 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/23 12:28:51 by antonimo         ###   ########.fr       */
+/*   Created: 2024/09/11 10:17:28 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/11 10:24:43 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/push_swap.h"
 
 void	chunk_sort(t_stack *stack) /* Init chunk creo que tiene mas sentido para el nombre */
 {
@@ -26,19 +26,15 @@ void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk
 	t_split_dest	dest;
 
 	chunk_to_the_top(stack, to_sort); /* utiliza el stack para comprobar tamaño de la pila || La primera vez que se llama no hace nada ya que es TOP_A*/
-	easy_sort(stack, to_sort);
-	if (to_sort->size <= 3)
+	if (to_sort->size < 3)
 	{
-		if (to_sort->size == 3)
-			/*sort_three(stack, to_sort);*/
 		else if (to_sort->size == 2)
 			sort_two(stack, to_sort);
 		else if (to_sort->size == 1)
 			sort_one(stack, to_sort);
 		return ;
 	}
-	/*chunk_split(stack, to_sort, &dest);  innit_size -> set_split_loc -> set_third_pivots -> chunk_max_value -> split max_reduction -> a_partly_sort 
-											split max_reduction -> is_consecutive*/
+	chunk_split(stack, to_sort, &dest)
 	rec_chunk_sort(stack, &dest.max);
 	rec_chunk_sort(stack, &dest.mid);
 	rec_chunk_sort(stack, &dest.min);
@@ -52,7 +48,7 @@ void	sort_two(t_stack *stack, t_chunk *to_sort)
 		move_from_to(stack, to_sort->loc, TOP_A);
 		move_from_to(stack, to_sort->loc, TOP_A);
 	}
-	if (value(&stack->a, 1) > value(&stack->a, 2))
+	if (stack->a.array[0] > stack->a.array[1])
 		swap_a(stack);
 	to_sort->size = to_sort->size - 2;
 }

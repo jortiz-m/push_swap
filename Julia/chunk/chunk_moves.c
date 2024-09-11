@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   chunk_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 11:58:58 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/23 11:44:11 by antonimo         ###   ########.fr       */
+/*   Created: 2024/09/11 10:19:06 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/11 11:01:59 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../include/push_swap.h"
 
-int	move_from_to(t_stack *stack, enum e_loc from, enum e_loc to) /* En principio se podría hacer void ya que no se utiliza el int */
+int	move_from_to(t_stack *stack, enum e_loc from, enum e_loc to)
 {
 	if (from == TOP_A)
 		move_from_top_a(stack, to);

@@ -6,19 +6,19 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:41:00 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/04 10:29:23 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:02:30 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef push_swap.h
-# define push_swap.h
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "libft.h"
 # include "stdlib.h"
 # include "stdbool.h"
 # include "limits.h"
 
-enum	e_loc
+enum e_loc
 {
 	TOP_A,
 	BOTTOM_A,
@@ -28,7 +28,7 @@ enum	e_loc
 
 typedef struct s_chunk
 {
-	enum e_loc	loc;
+	enum e_loc loc;
 	int			size;
 }	t_chunk;
 

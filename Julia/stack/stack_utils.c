@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/06 12:05:07 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/09/11 10:36:03 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/11 10:36:06 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
+vvoid	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 {
 	int	*nums;
 	int	i;
@@ -25,7 +25,6 @@ void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 	{
 		if (!valid_av(av[i]))
 			error(stacks);
-			/*meter en nums el atoi de cada parte del split*/
 		nums[i] = ft_atoi(av[i]);
 		i++;
 	}
@@ -54,7 +53,7 @@ bool	valid_av(char av[])
 	num = 0;
 	while (*av)
 	{
-		if (!ft_isdigit)
+		if (!ft_isdigit(av))
 			return (false);
 		num = num * 10 + (*av - '0');
 		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
@@ -73,6 +72,7 @@ void	check_doubles(t_stack *stacks, int *nums, int ac)
 	j = i + 1;
 	while (i < ac)
 	{
+		j = i + 1;
 		while (j < ac)
 		{
 			if (nums[i] == nums[j])
@@ -86,8 +86,7 @@ void	check_doubles(t_stack *stacks, int *nums, int ac)
 	}
 }
 
-/* Nums ranked calcula el orden en el que tiene que ir cada valor y lo almacena en la pila*/
-void	nums_ranked(int *nums, int pile[], int ac)
+void	nums_ranked(int *nums, int *pile, int ac)
 {
 	int	i;
 	int	j;

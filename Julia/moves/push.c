@@ -28,9 +28,11 @@ void	push(t_pile *src, t_pile *dest)
 void	push_a(t_stack *stack)
 {
 	push(&stack->a, &stack->b);
+	save_op(stack, pa);
 }
 
 void	push_b(t_stack *stack)
 {
 	push(&stack->b, &stack->a);
+	save_op(stack, pb);
 }
