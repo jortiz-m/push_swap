@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:44:13 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/06 12:53:12 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:32:47 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	push(t_pile *src, t_pile *dest)
 {

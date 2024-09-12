@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:18:01 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 10:24:53 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:32:25 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	chunk_split(t_ps *stack, t_chunk *to_split, t_split_dest *dest)
 {
@@ -67,7 +67,7 @@ void	split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
 	}
 }
 
-void	set_pivots(enum e_loc loc, int crt_size, int *pivot_1, int *pivot_2)
+void	set_pivots(enum e_loc loc, int crt_size, int *pvt_1, int *pvt_2)
 {
 	*pivot_2 = crt_size / 3;
 	if (loc == TOP_A || loc == BOTTOM_A)

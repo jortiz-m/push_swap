@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:46:18 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/06 12:53:07 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:32:54 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	rotate(t_pile *pile)
 {

@@ -6,15 +6,15 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:35:46 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 10:35:49 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:33:15 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
 void	sort(t_stack *stacks)
 {
-	if (stacks->a.size <= 1 || is_sorted(stacks)) // Creo que podemos dejar solo is_sorted
+	if (stacks->a.size <= 1 || is_sorted(stacks))
 		return ;
 	else if (stacks->a.size == 3)
 		sort_three_a(stacks);

@@ -1,24 +1,14 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/06 11:38:37 by jortiz-m          #+#    #+#              #
-#    Updated: 2024/09/06 12:50:37 by jortiz-m         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = pushswap
+LIBFT_DIR = libft/
+LIBFT = $(LIBFT_DIR)libft.a
+INCLUDE = -I $(LIBFT_DIR) -I .
 
-NAME = pushswap.a
-LIBFT = libft/
-INCLUDE = -L .libft/ -lft
-
-FUNCTIONS = 
-FUNCTIONS_PS = push_swap/push_swap.c
+FUNCTIONS = push_swap.c error.c opti_to_the_top.c sort_utils.c sort.c \
+			init_stacks.c stack_utils.c push.c reverse_rotate.c rotate.c \
+			show_moves.c swap.c chunk_moves.c chunk_sort.c chunk_split.c \
+			chunk_utils.c
 
 OBJECT = $(FUNCTIONS:%.c=%.o)
-OBJECT_PS = $(FUNCTIONS_PS:%.c=%.o)
 
 CC = gcc
 
@@ -26,21 +16,21 @@ CFLAGS = -Wall -Werror -Wextra
 
 all:$(NAME)
 
-$(NAME):$(OBJECT) $(OBJECT_PS)
-	@make -C $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJECT) $(OBJECT_PS) -o $(NAME) $(INCLUDE)
-	@echo "Compiled successfully bro!"
+$(NAME): $(OBJECT) $(LIBFT)
+	@make -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(OBJECT) -o $(NAME) -L $(LIBFT_DIR) -lft $(INCLUDE)
+	@echo "Compiled successfully!"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o
-	@make clean -C $(LIBFT)
+	rm -f $(OBJECT)
+	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	@make fclean -C $(LIBFT)
+	@make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

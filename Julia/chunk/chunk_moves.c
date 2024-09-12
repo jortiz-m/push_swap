@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:19:06 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 11:01:59 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:32:33 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	move_from_to(t_stack *stack, enum e_loc from, enum e_loc to)
 {

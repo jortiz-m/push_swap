@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:20:51 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 10:25:19 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:34:39 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	save_op(t_stack *stack, enum e_op op)
 {

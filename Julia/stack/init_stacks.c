@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:35:54 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 10:35:56 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:33:23 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
 void	init_stacks(t_stack *stacks, int ac, char **av)
 {
@@ -56,4 +56,26 @@ char	**process_av(int *ac, char **av)
 		i++;
 	*ac = i + 1;
 	return (splitted_av);
+}
+
+void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
+{
+	int	*nums;
+	int	i;
+
+	nums = malloc(ac * sizeof(int));
+	if (!nums)
+		error(stacks);
+	i = 0;
+	while (av[i])
+	{
+		if (!valid_av(av[i]))
+			error(stacks);
+		nums[i] = ft_atoi(av[i]);
+		i++;
+	}
+	check_doubles(stacks, nums, ac);
+	nums_ranked(nums, pile->array, ac);
+	pile->bottom = ac - 1;
+	free(nums);
 }

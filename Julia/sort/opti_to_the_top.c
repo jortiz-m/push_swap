@@ -6,11 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:35:24 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 10:35:28 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:33:09 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
 void	chunk_to_the_top(t_stack *stack, t_chunk *to_sort)
 {

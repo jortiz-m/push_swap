@@ -6,35 +6,13 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:36:03 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/11 10:36:06 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:33:31 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
-vvoid	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
-{
-	int	*nums;
-	int	i;
-
-	nums = malloc(ac * sizeof(int));
-	if (!nums)
-		error(stacks);
-	i = 0;
-	while (av[i])
-	{
-		if (!valid_av(av[i]))
-			error(stacks);
-		nums[i] = ft_atoi(av[i]);
-		i++;
-	}
-	check_doubles(stacks, nums, ac);
-	nums_ranked(nums, pile->array, ac);
-	pile->bottom = ac - 1;
-	free(nums);
-}
-
-bool	valid_av(char av[])
+bool	valid_av(char *av)
 {
 	int			sign;
 	long long	num;
@@ -111,4 +89,14 @@ void	nums_ranked(int *nums, int *pile, int ac)
 bool	is_full(t_pile *pile)
 {
 	return (pile->size == current_size(pile));
+}
+
+int	current_size(t_pile *pile)
+{
+	if (pile->top == pile->bottom && !pile->array[pile->top])
+		return (0);
+	if (pile->top > pile->bottom)
+		return ((pile->size - pile->top) + (pile->bottom + 1));
+	else
+		return (pile->bottom - pile->top + 1);
 }
