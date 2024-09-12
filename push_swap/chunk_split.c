@@ -6,7 +6,7 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:18:01 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/12 14:33:19 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 15:00:40 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +43,27 @@ void	split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
 {
 	if (loc == TOP_A)
 	{
-		min = BOTTOM_B;
-		mid = TOP_B;
-		max = BOTTOM_A;
+		min->loc = BOTTOM_B;
+		mid->loc = TOP_B;
+		max->loc = BOTTOM_A;
 	}
 	else if (loc == TOP_B)
 	{
-		min = BOTTOM_B;
-		mid = BOTTOM_A;
-		max = TOP_A;
+		min->loc = BOTTOM_B;
+		mid->loc = BOTTOM_A;
+		max->loc = TOP_A;
 	}
 	else if (loc == BOTTOM_A)
 	{
-		min = BOTTOM_B;
-		mid = TOP_B;
-		max = TOP_A;
+		min->loc = BOTTOM_B;
+		mid->loc = TOP_B;
+		max->loc = TOP_A;
 	}
 	else if (loc == BOTTOM_B)
 	{
-		min = TOP_B;
-		mid = BOTTOM_A;
-		max = TOP_A;
+		min->loc = TOP_B;
+		mid->loc = BOTTOM_A;
+		max->loc = TOP_A;
 	}
 }
 

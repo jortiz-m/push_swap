@@ -6,18 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 09:23:11 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/12 10:36:06 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/12 15:02:31 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error(t_stack *stacks)
-{
-	free_stacks(stacks);
-	ft_putendl_fd("An error has ocurred!", 2);
-	exit(EXIT_FAILURE);
-}
 
 void	free_stacks(t_stack *stacks)
 {
@@ -27,4 +20,11 @@ void	free_stacks(t_stack *stacks)
 		free(stacks->b.array);
 	if (stacks->op_list)
 		ft_lstclear(&stacks->op_list, NULL);
+}
+
+void	error(t_stack *stacks)
+{
+	free_stacks(stacks);
+	ft_putendl_fd("An error has ocurred!", 2);
+	exit(EXIT_FAILURE);
 }
