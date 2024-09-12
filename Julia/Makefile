@@ -1,7 +1,7 @@
-NAME = pushswap
+NAME = push_swap
 LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
-INCLUDE = -I $(LIBFT_DIR) -I .
+INCLUDE = $(LIBFT_DIR)
 
 FUNCTIONS = push_swap.c error.c opti_to_the_top.c sort_utils.c sort.c \
 			init_stacks.c stack_utils.c push.c reverse_rotate.c rotate.c \
@@ -12,7 +12,7 @@ OBJECT = $(FUNCTIONS:%.c=%.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I
 
 all:$(NAME)
 
