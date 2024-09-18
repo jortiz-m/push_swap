@@ -6,7 +6,7 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:20:51 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/12 10:34:39 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:08:08 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	save_op(t_stack *stack, enum e_op op)
 	ft_lstadd_back(&stack->op_list, new);
 }
 
-void	show_moves(t_list *head)
+void	print_operations(t_list *head)
 {
 	t_list	*reader;
 

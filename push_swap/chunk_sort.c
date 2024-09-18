@@ -6,9 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:17:28 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/12 14:24:39 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:03:45 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 #include "push_swap.h"
 
@@ -26,6 +28,7 @@ void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort)
 	t_split_dest	dest;
 
 	chunk_to_the_top(stack, to_sort);
+	if (to_sort->size < 3)
 	{
 		if (to_sort->size == 2)
 			sort_two(stack, to_sort);
@@ -47,7 +50,7 @@ void	sort_two(t_stack *stack, t_chunk *to_sort)
 		move_from_to(stack, to_sort->loc, TOP_A);
 		move_from_to(stack, to_sort->loc, TOP_A);
 	}
-	if (stack->a.array[0] > stack->a.array[1])
+	if (value(&stack->a, 1) > value(&stack->a, 2))
 		swap_a(stack);
 	to_sort->size = to_sort->size - 2;
 }

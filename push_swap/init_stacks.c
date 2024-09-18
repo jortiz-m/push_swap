@@ -6,37 +6,11 @@
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:35:54 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/12 15:04:21 by jortiz-m         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:04:53 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	init_pile(t_stack *stacks, t_pile *pile, int ac)
-{
-	pile->array = malloc(ac * sizeof(int));
-	if (!pile->array)
-		error(stacks);
-	pile->top = 0;
-	pile->bottom = 0;
-	pile->size = ac;
-	ft_memset(&pile->array, 0, ac);
-}
-
-char	**process_av(int *ac, char **av)
-{
-	int		i;
-	char	**splitted_av;
-
-	if (av == NULL)
-		return (NULL);
-	i = 0;
-	splitted_av = ft_split(av[1], ' ');
-	while (splitted_av[i])
-		i++;
-	*ac = i + 1;
-	return (splitted_av);
-}
 
 void	init_stacks(t_stack *stacks, int ac, char **av)
 {
@@ -56,6 +30,32 @@ void	init_stacks(t_stack *stacks, int ac, char **av)
 	init_pile(stacks, &stacks->b, ac);
 	fill_pile(stacks, &stacks->a, ac, split_av);
 	stacks->op_list = NULL;
+}
+
+char	**process_av(int *ac, char **av)
+{
+	int		i;
+	char	**splitted_av;
+
+	if (av == NULL)
+		return (NULL);
+	i = 0;
+	splitted_av = ft_split(av[1], ' ');
+	while (splitted_av[i])
+		i++;
+	*ac = i + 1;
+	return (splitted_av);
+}
+
+void	init_pile(t_stack *stacks, t_pile *pile, int ac)
+{
+	pile->array = malloc(ac * sizeof(int));
+	if (!pile->array)
+		error(stacks);
+	pile->top = 0;
+	pile->bottom = 0;
+	pile->size = ac;
+	ft_memset(pile->array, 0, ac);
 }
 
 void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)

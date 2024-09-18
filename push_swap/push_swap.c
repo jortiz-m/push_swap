@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jortiz-m <jortiz-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 11:44:13 by jortiz-m          #+#    #+#             */
-/*   Updated: 2024/09/12 10:32:47 by jortiz-m         ###   ########.fr       */
+/*   Created: 2024/08/28 10:31:33 by jortiz-m          #+#    #+#             */
+/*   Updated: 2024/09/18 10:08:45 by jortiz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_pile *src, t_pile *dest)
+int	main(int ac, char **av)
 {
-	int	dest_index;
+	t_stack	stacks;
 
-	if (is_full(dest))
-		return ;
-	dest_index = next_up(dest, dest->top);
-	dest->array[dest_index] = src->array[src->top];
-	dest->top = dest_index;
-	src->array[src->top] = 0;
-	src->top = next_down(src, src->top);
-}
-
-void	push_a(t_stack *stack)
-{
-	push(&stack->a, &stack->b);
-	save_op(stack, pa);
-}
-
-void	push_b(t_stack *stack)
-{
-	push(&stack->b, &stack->a);
-	save_op(stack, pb);
+	init_stacks(&stacks, ac, av);
+	sort(&stacks);
+	print_operations(stacks.op_list);
+	exit(EXIT_SUCCESS);
 }
